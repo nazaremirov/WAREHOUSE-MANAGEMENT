@@ -233,39 +233,3 @@ job_number_each=[0 for i in range(N_FORKLIFTS)]
 for i in range(N_FORKLIFTS):
     job_number_each[i]=len(job_order[i])
 print(job_number_each)
-
-#print(len(job_order))
-
-# def subtourelim(model, where): # cycle elimination
-#     if where == GRB.Callback.MIPSOL:
-#         vals = model.cbGetSolution(model._vars)
-#         selected = gurobipy.tuplelist((k, i, j) for k, i, j in model._vars.keys() if vals[k, i, j] !=0)
-                        
-#         Connections=[]
-#         for k,i,j in selected.select('*','*','*'):
-#             Connections.append([k,i,j])
-#         print(Connections)
-#         for k in range(N_FORKLIFTS):
-#             Edges=[]
-#             for i in range(N_JOBS):
-#                 for j in range(N_JOBS):
-#                     if [k, i, j] in Connections:
-#                         Edges.append([i,j])
-#             print(Edges)
-#             G=None
-#             Strongly_connected_comp=None
-#             N_components=None
-            
-#             G=nx.DiGraph()
-#             G.add_edges_from(Edges)
-#             Strongly_connected_comp=sorted(nx.strongly_connected_components(G),key=len)
-#             N_components = len(sorted(nx.weakly_connected_components(G),key=len))
-#             if N_components > 1:
-#                 #print('number of components:', N_components)
-#                 for cmp in range(0,len(Strongly_connected_comp)):
-#                     if len(Strongly_connected_comp[cmp])>1:
-#                         model.cbLazy(gurobipy.quicksum(model._vars[k, i, j] for i in list(Strongly_connected_comp[cmp])
-#                                                        for j in list(Strongly_connected_comp[cmp]))
-#                                      <= len(Strongly_connected_comp[cmp])-1)
-
-
